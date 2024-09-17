@@ -1,7 +1,7 @@
 # on my machine, i ran this with:  
 #   python3.13 -B extend.py ../moot/optimize/[comp]*/*.csv
 
-import sys,random, time, math, stats
+import sys,random, time, math, stats, os
 from ezr import the, DATA, csv, dot
 
 # def show(lst):
@@ -19,6 +19,15 @@ from ezr import the, DATA, csv, dot
 # show(["dim", "size","xcols","ycols","rows","file"])
 # show(["------"] * 6)
 # [show(myfun(arg)) for arg in sys.argv if arg[-4:] == ".csv"]
+
+# cmds = ''
+# for folder in os.listdir('data/optimize'):
+#   for file in os.listdir(f'data/optimize/{folder}'):
+#     if file.endswith('csv'):
+#       cmds += f'python3.13 extend.py data/optimize/{folder}/{file} > output/{file} &\n'
+
+# print(cmds)
+      
 
 d = DATA().adds(csv(sys.argv[1]))
 b4 = [d.chebyshev(row) for row in d.rows]
