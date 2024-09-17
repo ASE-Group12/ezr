@@ -20,7 +20,7 @@ from ezr import the, DATA, csv, dot
 # show(["------"] * 6)
 # [show(myfun(arg)) for arg in sys.argv if arg[-4:] == ".csv"]
 
-d = DATA().adds(csv(the.train))
+d = DATA().adds(csv(sys.argv[1]))
 b4 = [d.chebyshev(row) for row in d.rows]
 somes = [stats.SOME(b4,f"asIs,{len(d.rows)}")]
 rnd = lambda z: z
