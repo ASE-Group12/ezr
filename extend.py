@@ -1,33 +1,19 @@
-# on my machine, i ran this with:  
-#   python3.13 -B extend.py ../moot/optimize/[comp]*/*.csv
+import sys, time, math, stats, os
+from ezr import the, DATA, csv
 
-import sys,random, time, math, stats, os
-from ezr import the, DATA, csv, dot
+def myfun():
+  cmds = ''
+  for folder in os.listdir('data/optimize'):
+    for file in os.listdir(f'data/optimize/{folder}'):
+      if file.endswith('csv'):
+        d = DATA().adds(csv(file))
+        if len(d.cols.x) > 6:
+          cmds += f'python3.13 extend.py data/optimize/{folder}/{file} > output_highX/{file} &\n'
+        else:
+          cmds += f'python3.13 extend.py data/optimize/{folder}/{file} > output_LowX/{file} &\n'
 
-# def show(lst):
-#   return print(*[f"{word:6}" for word in lst], sep="\t")
+  print(cmds)     
 
-# def myfun(train):
-#   d    = DATA().adds(csv(train))
-#   x    = len(d.cols.x)
-#   size = len(d.rows)
-#   dim  = "small" if x <= 5 else ("med" if x < 12 else "hi")
-#   size = "small" if size< 500 else ("med" if size<5000 else "hi")
-#   return [dim, size, x,len(d.cols.y), len(d.rows), train[17:]]
-
-# random.seed(the.seed) #  not needed here, but good practice to always take care of seeds
-# show(["dim", "size","xcols","ycols","rows","file"])
-# show(["------"] * 6)
-# [show(myfun(arg)) for arg in sys.argv if arg[-4:] == ".csv"]
-
-# cmds = ''
-# for folder in os.listdir('data/optimize'):
-#   for file in os.listdir(f'data/optimize/{folder}'):
-#     if file.endswith('csv'):
-#       cmds += f'python3.13 extend.py data/optimize/{folder}/{file} > output/{file} &\n'
-
-# print(cmds)
-      
 
 d = DATA().adds(csv(sys.argv[1]))
 b4 = [d.chebyshev(row) for row in d.rows]
