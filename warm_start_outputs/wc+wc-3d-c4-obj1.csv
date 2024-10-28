@@ -1,0 +1,52 @@
+cold exploit/b=False,20 : 3.43 secs
+warm exploit/b=False,20 : 3.43 secs
+cold exploit/b=True,20 : 4.16 secs
+warm exploit/b=True,20 : 4.16 secs
+cold exploit/b=False,30 : 4.61 secs
+warm exploit/b=False,30 : 4.61 secs
+cold exploit/b=True,30 : 5.17 secs
+warm exploit/b=True,30 : 5.17 secs
+cold exploit/b=False,40 : 5.84 secs
+warm exploit/b=False,40 : 5.84 secs
+cold exploit/b=True,40 : 6.37 secs
+warm exploit/b=True,40 : 6.37 secs
+cold explore/b=False,20 : 3.48 secs
+warm explore/b=False,20 : 3.48 secs
+cold explore/b=True,20 : 4.05 secs
+warm explore/b=True,20 : 4.05 secs
+cold explore/b=False,30 : 4.67 secs
+warm explore/b=False,30 : 4.67 secs
+cold explore/b=True,30 : 5.12 secs
+warm explore/b=True,30 : 5.12 secs
+cold explore/b=False,40 : 5.87 secs
+warm explore/b=False,40 : 5.87 secs
+cold explore/b=True,40 : 6.43 secs
+warm explore/b=True,40 : 6.43 secs
+#
+ 0,    warm exploit/b=True,20,  0.00,  0.00, *                   |                   ,  0.00,  0.00,  0.00,  0.00,  0.01
+ 0,   cold exploit/b=False,30,  0.00,  0.00, *                   |                   ,  0.00,  0.00,  0.00,  0.00,  0.01
+ 0,    cold exploit/b=True,30,  0.00,  0.00, *                   |                   ,  0.00,  0.00,  0.00,  0.00,  0.01
+ 0,    warm exploit/b=True,30,  0.00,  0.00, *                   |                   ,  0.00,  0.00,  0.00,  0.00,  0.01
+ 0,   cold exploit/b=False,40,  0.00,  0.00, *                   |                   ,  0.00,  0.00,  0.00,  0.00,  0.00
+ 0,   warm exploit/b=False,40,  0.00,  0.01, *                   |                   ,  0.00,  0.00,  0.00,  0.01,  0.01
+ 0,    cold exploit/b=True,40,  0.00,  0.00, *                   |                   ,  0.00,  0.00,  0.00,  0.00,  0.00
+ 0,    warm exploit/b=True,40,  0.00,  0.00, *                   |                   ,  0.00,  0.00,  0.00,  0.00,  0.00
+ 0,   cold explore/b=False,40,  0.00,  0.00, *                   |                   ,  0.00,  0.00,  0.00,  0.00,  0.00
+ 0,    warm explore/b=True,40,  0.00,  0.00, *                   |                   ,  0.00,  0.00,  0.00,  0.00,  0.00
+ 0,    cold exploit/b=True,20,  0.00,  0.00, *-                  |                   ,  0.00,  0.00,  0.00,  0.00,  0.07
+ 0,    cold explore/b=True,30,  0.00,  0.01, *-                  |                   ,  0.00,  0.00,  0.00,  0.01,  0.06
+ 0,    warm explore/b=True,30,  0.00,  0.00, *                   |                   ,  0.00,  0.00,  0.00,  0.00,  0.00
+ 0,    cold explore/b=True,40,  0.00,  0.00, *                   |                   ,  0.00,  0.00,  0.00,  0.00,  0.00
+ 0,    warm explore/b=True,20,  0.00,  0.00, *                   |                   ,  0.00,  0.00,  0.00,  0.00,  0.01
+ 0,   cold explore/b=False,30,  0.00,  0.00, *                   |                   ,  0.00,  0.00,  0.00,  0.00,  0.00
+ 0,   cold explore/b=False,20,  0.00,  0.01, *---                |                   ,  0.00,  0.00,  0.00,  0.01,  0.12
+ 0,   cold exploit/b=False,20,  0.00,  0.01, *                   |                   ,  0.00,  0.00,  0.00,  0.01,  0.02
+ 0,   warm explore/b=False,40,  0.00,  0.00, *                   |                   ,  0.00,  0.00,  0.00,  0.01,  0.01
+ 0,    cold explore/b=True,20,  0.00,  0.01, *                   |                   ,  0.00,  0.00,  0.00,  0.01,  0.01
+ 0,   warm explore/b=False,30,  0.01,  0.05, * -                 |                   ,  0.00,  0.00,  0.01,  0.06,  0.08
+ 0,   warm exploit/b=False,20,  0.02,  0.05, *                   |                   ,  0.00,  0.01,  0.02,  0.06,  0.06
+ 0,   warm exploit/b=False,30,  0.02,  0.05, *                   |                   ,  0.00,  0.00,  0.02,  0.06,  0.06
+#
+ 1,   warm explore/b=False,20,  0.06,  0.06,   *                 |                   ,  0.01,  0.01,  0.06,  0.08,  0.09
+#
+ 2,                  asIs,196,  0.26,  0.13, --------  *  -----  |                   ,  0.01,  0.21,  0.26,  0.34,  0.46
