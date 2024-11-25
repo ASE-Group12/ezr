@@ -1,7 +1,7 @@
 from ezr import the, DATA, csv
 import sys, random, stats, time, math
 
-def dbscan(data: DATA, eps: float, min_samples: int):
+def dbscan(data: DATA, eps: float, min_samples: int, max_iterations=300):
     """
     Perform DBSCAN clustering on the given data.
     
@@ -19,23 +19,29 @@ def dbscan(data: DATA, eps: float, min_samples: int):
     def get_neighbors(point, eps):
         return [row for row in data.rows if data.dist(point, row) <= eps]
 
-    def expand_cluster(point, neighbors, cluster, visited):
+    def expand_cluster(point, neighbors, cluster, visited, iteration_count):
         cluster.append(point)
         for neighbor in neighbors:
+            if iteration_count[0] >= max_iterations:
+                return
+            iteration_count[0] += 1
             neighbor_hash = point_to_hashable(neighbor)
             if neighbor_hash not in visited:
                 visited.add(neighbor_hash)
                 new_neighbors = get_neighbors(neighbor, eps)
                 if len(new_neighbors) >= min_samples:
-                    neighbors.extend([n for n in new_neighbors if point_to_hashable(n) not in set(map(point_to_hashable, neighbors))])
-            if neighbor not in [c for clust in clusters for c in clust]:
+                    neighbors.extend([n for n in new_neighbors if point_to_hashable(n) not in visited])
+            if neighbor not in cluster:
                 cluster.append(neighbor)
 
     visited = set()
     clusters = []
     noise = []
+    iteration_count = [0]  # Use a list to allow modification inside nested functions
 
     for point in data.rows:
+        if iteration_count[0] >= max_iterations:
+            break
         point_hash = point_to_hashable(point)
         if point_hash in visited:
             continue
@@ -45,7 +51,7 @@ def dbscan(data: DATA, eps: float, min_samples: int):
             noise.append(point)
         else:
             cluster = []
-            expand_cluster(point, neighbors, cluster, visited)
+            expand_cluster(point, neighbors, cluster, visited, iteration_count)
             clusters.append(cluster)
 
     representatives = []
